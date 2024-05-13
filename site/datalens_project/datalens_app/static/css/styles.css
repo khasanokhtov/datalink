@@ -1,0 +1,62 @@
+/* datalens_app/static/css/styles.css */
+
+/* Стили для заголовка */
+h1 {
+    color: #333;
+    font-size: 24px;
+}
+
+/* Стили для списка */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Стили для элементов списка */
+li {
+    margin-bottom: 10px;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input[type="text"], select {
+    width: 200px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.dataset {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.dataset h2 {
+    margin-top: 0;
+}

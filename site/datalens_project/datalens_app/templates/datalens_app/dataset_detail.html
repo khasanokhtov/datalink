@@ -1,0 +1,16 @@
+<!-- datalens_app/templates/datalens_app/dataset_detail.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ dataset.name }} - Детали датасета</title>
+</head>
+<body>
+    <h1>{{ dataset.name }}</h1>
+    <p>{{ dataset.description }}</p>
+    <p>Файл: <a href="{{ dataset.file.url }}">{{ dataset.file.name }}</a></p>
+</body>
+</html>

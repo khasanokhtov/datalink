@@ -1,0 +1,18 @@
+<!-- datalens_app/templates/datalens_app/add_data.html -->
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить данные</title>
+</head>
+<body>
+    <h1>Добавить данные</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Добавить данные</button>
+    </form>
+</body>
+</html>

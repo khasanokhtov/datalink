@@ -1,0 +1,51 @@
+<!-- datalens_app/templates/datalens_app/index.html -->
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список датасетов</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Список датасетов</h1>
+
+        <!-- Форма для добавления нового датасета -->
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Добавить датасет</button>
+        </form>
+
+        <!-- Форма для фильтрации и сортировки -->
+        <form method="GET" action="">
+            <input type="text" name="name_contains" placeholder="Поиск по имени">
+            <select name="sort_by">
+                <option value="">Сортировать по</option>
+                <option value="name">Имя</option>
+                <option value="date_uploaded">Дата загрузки</option>
+            </select>
+            <button type="submit">Применить</button>
+        </form>
+
+        <!-- Отображение списка датасетов -->
+        {% for dataset in datasets %}
+            <div class="dataset">
+                <h2><a href="{% url 'dataset_detail' dataset.id %}">{{ dataset.name }}</a></h2>
+                <p>{{ dataset.description }}</p>
+                {% if dataset.file %}
+                    <p>Файл: <a href="{{ dataset.file.url }}">{{ dataset.file.name }}</a></p>
+                {% else %}
+                    <p>Файл отсутствует</p>
+                {% endif %}
+                <p><a href="{% url 'edit_dataset' dataset.id %}">Редактировать</a> | <a href="{% url 'delete_dataset' dataset.id %}">Удалить</a></p>
+            </div>
+        {% empty %}
+            <p>Нет доступных датасетов.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
